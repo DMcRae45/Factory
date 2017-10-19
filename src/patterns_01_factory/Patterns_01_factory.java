@@ -26,6 +26,7 @@ public class Patterns_01_factory
         //Test_SilverAccount();        
         //Test_GoldAccount();
         //Test_PlatinumAccount();
+        //Test_BronzeAccount();
         
         Test_AccountI();
     }
@@ -90,6 +91,18 @@ public class Patterns_01_factory
         return 0;
     }
     
+        public static int Test_BronzeAccount()
+    {
+        System.out.println("--Test Bronze Account--");
+ 
+        Account ac03 = new Account ("bronze");
+        ac03.rewardPoints(123.00);
+        System.out.print("Bronze Acc: ");
+        System.out.println(ac03.getRewardPoints());
+        
+        return 0;
+    }
+    
     public static void Test_AccountI()
     {
     try
@@ -103,6 +116,9 @@ public class Patterns_01_factory
     
     AccountI anotherPlatinum = AccountFactory.createAccount("pLATINUM");
     System.out.println(anotherPlatinum.addRewardPoints(123.00));
+    
+    AccountI lastBronze = AccountFactory.createAccount("BrOnZe");
+    System.out.println(lastBronze.addRewardPoints(123.00));
     
     //makes the program crash if the exception is not handled
     //AccountI bogusAccount = AccountFactory.createAccount("i throw");
@@ -118,11 +134,15 @@ public class Patterns_01_factory
     anotherPlatinum.addRewardPoints(234.56);
     System.out.println("anotherPlatinum: Reward points added");
     
+    lastBronze.addRewardPoints(234.56);
+    System.out.println("lastBronze: Reward points added");
+    
     System.out.println("\n----- use the getter method (see AccountBase)-----\n");
     
     System.out.println("[use getter method] silver (rewardPoints) : " + silver.getRewardPoints());
     System.out.println("[use getter method] theGolden (rewardPoints) : " + theGolden.getRewardPoints());
     System.out.println("[use getter method] anotherPlatinum (rewardPoints) : " + anotherPlatinum.getRewardPoints());
+    System.out.println("[use getter method] lastBronze (rewardPoints) : " + lastBronze.getRewardPoints());
     
     }
     catch (IllegalArgumentException e)
